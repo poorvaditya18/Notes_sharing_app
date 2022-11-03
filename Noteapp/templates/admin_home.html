@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Notes Sharing</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'images/mystyle.css' %}" />
+    
+    <style>
+      .container1{
+        background-color: lightgreen;
+        border-radius: 8px;
+      }
+      h2,h4{
+        padding: 10px;
+      }
+    </style> 
+
+  </head>
+
+  <body>
+    <!-- 
+
+    THIS WILL BE HOMEPAGE FOR ADMIN USERS 
+    TASK - IT WILL HAVE DIFFERENT FUNCTIONALITY THAT USER PAGE
+
+    -->
+
+    <h3 style="text-align: center">
+      <span style="color: black">Notes Sharing</span>
+    </h3>
+
+    <!-- Admin NavBar -->
+    <nav
+      class="navbar navbar-expand-sm justify-content-center"
+      style="background-color: lightblue"
+    >
+      <ul class="navbar-nav">
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'admin_home' %}">HOME</a>
+        </li>
+
+        <li class="nav-it dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+            >VIEW NOTES</a
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">PENDING</a>
+            <a class="dropdown-item" href="#">ACCEPTED</a>
+            <a class="dropdown-item" href="#">REJECTED</a>
+            <a class="dropdown-item" href="#">ALL NOTES</a>
+          </div>
+        </li>
+
+        <li class="navbar-it">
+          <a class="nav-link" href="#">VIEW USERS</a>
+        </li>
+
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'Logout' %}">LOGOUT</a>
+        </li>
+      </ul>
+    </nav>
+    <br>
+     <br>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-3 text-center">
+          <div class="containter1">
+            <h2 class="text-primary">#</h2>
+            <a href=""><h4 class="text-dark">PENDING Notes</h4></a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 text-center">
+          <div class="containter1">
+            <h2 class="text-primary">#</h2>
+            <a href=""><h4 class="text-dark">REJECTED Notes</h4></a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 text-center">
+          <div class="containter1">
+            <h2 class="text-primary">#</h2>
+            <a href=""><h4 class="text-dark">ACCEPTED Notes</h4></a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 text-center">
+          <div class="containter1">
+            <h2 class="text-primary">#</h2>
+            <a href=""><h4 class="text-dark">ALL Notes</h4></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

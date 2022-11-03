@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Notes Sharing</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="mystyle.css" />
+  </head>
+
+  <body>
+
+    {% if not error %}
+     <script>
+        alert("Logged In Successfully!!");
+        // then user will be able to viste profile url
+        window.location = ("{% url 'admin_home' %}");
+     </script>
+    {% else % }
+     <script>
+        alert("Invalid Credentials, Try Again!!");
+     </script>
+    {% endif %}
+
+
+
+    <h3 style="text-align: center">
+      <span style="color: black">Notes Sharing</span>
+    </h3>
+
+    <nav
+      class="navbar navbar-expand-sm justify-content-center"
+      style="background-color: lightblue"
+    >
+      <ul class="navbar-nav">
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'index' %}">HOME</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'userlogin' %}">LOGIN</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'login_admin' %}">ADMIN LOGIN</a>
+        </li>
+      </ul>
+    </nav>
+
+   
+
+
+    <div class="conatiner mt-5">
+      <div class="row">
+        <div class="col-sm-4 ml-5">
+          <!-- <h2 class="text-center">New User</h2> -->
+          <img src="{% static 'images/admin.jpg' %}" class="img-thumbnail" />
+        </div>
+
+        <div class="col-sm-4">
+          <h2 class="text-center">Admin Log In</h2>
+          <hr />
+          <p>Enter Your Username and Password For access Admin panel</p>
+
+          <!--  -->
+          <form method="POST">
+            {% csrf_token %}
+            <label>Username </label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Username"
+              name="uname"
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              name="pwd"
+            />
+            <input type="submit" class="btn btn-danger mt-2" value="Login" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

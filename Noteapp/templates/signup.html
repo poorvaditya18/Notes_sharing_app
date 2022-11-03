@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Notes Sharing</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}" />
+  </head>
+
+  <body>
+
+
+    {% if not error %}
+    <script>
+      alert("Signup Successfully!!");
+      window.location = "{% url 'userlogin' %}";
+    </script>
+    {% else % }
+    <script>
+      alert("Try Again!!");
+    </script>
+    {% endif %}
+
+
+    <h3 style="text-align: center">
+      <span style="color: black">Notes Sharing</span>
+    </h3>
+
+    <nav
+      class="navbar navbar-expand-sm justify-content-center"
+      style="background-color: lightblue"
+    >
+      <ul class="navbar-nav">
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'index' %}">HOME</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'userlogin' %}">LOGIN</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="{% url 'login_admin' %}">ADMIN LOGIN</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="conatiner mt-5">
+      <div class="row">
+        <div class="col-sm-4 ml-5">
+          <h2 class="text-center">Login</h2>
+          <hr />
+          <p>Already have an account? Log In</p>
+          <center>
+            <a
+              href="{% url 'userlogin' %}"
+              class="btn btn-danger text-white mt-5"
+              >Log in</a
+            >
+          </center>
+        </div>
+        <div class="col-sm-4">
+          <h2 class="text-center">Enter Your Details</h2>
+          <hr />
+
+          <!--  -->
+          <form method="POST">
+            {% csrf_token %}
+            <label>First name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Firstname"
+              name="fname"
+            />
+            <label>Last name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Lastname"
+              name="lname"
+            />
+            <label>contact</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter contact Number"
+              name="contact"
+            />
+            <label>Email id</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter Email-id"
+              name="emailid"
+              
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              name="pwd"
+            />
+
+            <label>Branch</label>
+            <select class="form-control" name="branch">
+              <option value="Computer Science">Computer Science</option>
+              <option value="Information Technology">
+                Information Technology
+              </option>
+              <option value="Electronics and communication">
+                Electronics and communication
+              </option>
+            </select>
+
+            <label>Are you?</label>
+            <select class="form-control" name="role">
+              <option value="Student">Student</option>
+              <option value="Teacher">Teacher</option>
+            </select>
+            <input type="submit" class="btn btn-danger mt-2" value="Submit" />
+            <!-- ---------- -->
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

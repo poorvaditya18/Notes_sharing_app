@@ -1,0 +1,51 @@
+.nav-link{
+    color: black;
+}
+.nav-link:hover{
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    border-radius: 10rem;
+}
+.image{
+    width: 100%;
+    height:900px;
+      background-image: url('img3.jpg');
+      background-repeat: no-repeat;
+    
+}
+.transparent-box{
+    width: 100%;
+    height: 100%;
+    background-color: lightgrey;
+    border: 1px solid black;
+    opacity: 0.4;
+}
+.transparent-box p{
+    margin-top: 10%;
+    font-weight: bold;
+    font-size: 60px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: solid black;
+    text-align: center;
+}
+.halfcircle{
+    height: 60px;
+    width: 120px;
+    border-radius: 90px 90px 0 0 ;
+    margin: 0px;
+    background-color: lightblue;
+}
+.halfcircleBottom{
+    height: 60px;
+    width: 120px;
+    border-radius: 0 0 90px 90px;
+    margin: 0px;
+    background-color: lightseagreen;
+}
+.box1 p{
+    font-weight: bold;
+    color: solid black;
+    font-family: monospace;
+    text-align: center;
+}

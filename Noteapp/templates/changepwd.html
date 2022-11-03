@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Notes Sharing</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'images/mystyle.css' %}" />
+
+    <style>
+      .container1 {
+        background-color: lightgreen;
+        border-radius: 8px;
+      }
+      h2,
+      h4 {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+    {% if not error %}
+    <script>
+      alert("Password Changed Successfully!!");
+      window.location = ('{% url "Logout" %}'); 
+    </script>
+    {% else % }
+    <script>
+      alert("Try Again !!");
+    </script>
+    {% endif %}
+
+
+
+    <h3 style="text-align: center">
+      <span style="color: black">USER PANEL</span>
+    </h3>
+
+    <nav
+      class="navbar navbar-expand-sm justify-content-center"
+      style="background-color: lightblue"
+    >
+      <ul class="navbar-nav">
+        <li class="navbar-it">
+          <a class="nav-link" href="#">HOME</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="#">UPLOAD NOTES</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="#">VIEW MY NOTES</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="#">VIEW ALL NOTES</a>
+        </li>
+        <li class="navbar-it">
+          <a class="nav-link" href="#">LOGOUT</a>
+        </li>
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-toggle="dropdown"
+          >
+            Welcome {{request.user.first_name}}
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'profile' %}">PROFILE</a>
+            <a class="dropdown-item" href="#">EDIT PROFILE</a>
+            <a class="dropdown-item" href="{% url 'changepwd' %}"
+              >CHANGE PASSWORD</a
+            >
+          </div>
+        </div>
+      </ul>
+    </nav>
+   
+    <div class="col-sm-4">
+        <h2 class="text-center">CHANGE PASSWORD </h2>
+        <hr />
+
+        <!--  -->
+        <form method="POST">
+          {% csrf_token %}
+          <label>OLD PASSWORD</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter old password"
+            name="oldpwd"
+          />
+          <label>NEW PASSWORD</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter new password"
+            name="newpwd"
+          />
+          <label>CONFIRM PASSWORD</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter password again"
+            name="cnfpwd"
+          />
+          <input type="submit" class="btn btn-danger mt-2" value="Login" />
+        </form>
+      </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
