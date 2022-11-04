@@ -1,83 +1,29 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Notes Sharing</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}" />
-  </head>
-
-  <body>
-    <h3 style="text-align: center">
-      <span style="color: black">Notes Sharing</span>
-    </h3>
-
-    <nav
-      class="navbar navbar-expand-sm justify-content-center"
-      style="background-color: lightblue"
-    >
-      <ul class="navbar-nav">
-        <li class="navbar-it">
-          <a class="nav-link" href="{% url 'index' %}">HOME</a>
-        </li>
-        <li class="navbar-it">
-          <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
-        </li>
-        <li class="navbar-it">
-          <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
-        </li>
-        <li class="navbar-it">
-          <a class="nav-link" href="{% url 'userlogin' %}">LOGIN</a>
-        </li>
-        <li class="navbar-it">
-          <a class="nav-link" href="{% url 'login_admin' %}">ADMIN LOGIN</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div
-      style="background-color: rgb(75, 171, 202); width: 100%; height: 100px"
-    >
-      <h3 class="text-white container pt-3">Contact Us</h3>
+{% extends "navigation.html" %} {% block start %} {% load static %}
+<div style="background-color: rgb(75, 171, 202); width: 100%; height: 100px">
+  <h3 class="text-white container pt-3">Contact Us</h3>
+</div>
+<div class="conatiner mt-5 pl-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.758550662652!2d73.73559291416389!3d18.584921087371512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbc155555555%3A0x96e2c1d4669940e9!2sInternational%20Institute%20of%20Information%20Technology%20(I%20Square%20IT)!5e0!3m2!1sen!2sin!4v1666787139541!5m2!1sen!2sin"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
-    <div class="conatiner mt-5 pl-5">
-      <div class="row">
-        <div class="col-sm-6">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.758550662652!2d73.73559291416389!3d18.584921087371512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbc155555555%3A0x96e2c1d4669940e9!2sInternational%20Institute%20of%20Information%20Technology%20(I%20Square%20IT)!5e0!3m2!1sen!2sin!4v1666787139541!5m2!1sen!2sin"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-        <div class="col-sm-6 mt-5">
-          <p><i class="fas fa-envelope px-3"></i>Email-ID:</p>
-          <p><i class="fas fa-phone-square px-3"></i>Contact:</p>
-          <p><i class="fas fa-address-card px-3"></i>Address:</p>
-          <p><i class="fab fa-twitter px-3"></i>Twitter:</p>
-          <p><i class="fab fa-instagram px-3"></i>Insatgram:</p>
-        </div>
-      </div>
+    <div class="col-sm-6 mt-5">
+      <p><i class="fas fa-envelope px-3"></i>Email-ID:</p>
+      <p><i class="fas fa-phone-square px-3"></i>Contact:</p>
+      <p><i class="fas fa-address-card px-3"></i>Address:</p>
+      <p><i class="fab fa-twitter px-3"></i>Twitter:</p>
+      <p><i class="fab fa-instagram px-3"></i>Insatgram:</p>
     </div>
-    <br />
-    <br />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  </body>
-</html>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %}

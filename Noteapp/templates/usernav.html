@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,14 +37,15 @@
           <a class="nav-link" href="#">VIEW ALL NOTES</a>
         </li>
         <li class="navbar-it">
-          <a class="nav-link" href="#">LOGOUT</a>
+          <a class="nav-link" href="{% url 'Logout' %}">LOGOUT</a>
         </li>
-
-        <div>
-
-        </div>
       </ul>
     </nav>
+ 
+    {% block start %}
+    
+    {% endblock %}
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
