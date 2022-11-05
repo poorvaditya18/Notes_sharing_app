@@ -1,0 +1,91 @@
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: white;
+    font-weight: bold;
+    background-color: #406E8E;
+    border-radius: 10rem;
+}
+
+.navbar{
+    background-color: #161925;
+}
+.h3{
+     text-align: right;
+     margin-left: 200px;
+     color: whitesmoke;
+     font-family: luminari fantasy;
+}
+
+#span{
+    font-size: 40px;
+    margin: 10px;
+}
+#text1{
+    font-size: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: solid black;
+    margin: 35px;
+}
+
+#navigation ul{
+    display: flex;
+    width: 350px;
+}
+#navigation ul li:hover a .icon{
+    transform: translateY(-80px);
+}
+.icon{
+    color: white;
+}
+#navigation ul li:hover a .text{
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  #navigation ul li a .text{
+    position: absolute;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(-20px);
+  } 
+  #navigation ul li a .icon{
+    position: relative;
+    display: flex;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+  }
+  #navigation ul li{
+    margin: 20px;
+  }
+  .logo{
+    width: 40px;
+    height: 40px;
+  }
+nav h3{
+    text-align: center;
+}
+
+.gradientColor {
+
+  background: linear-gradient(-45deg, #05995c, #950a3f, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  font-family: roboto;
+  color: white;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 5%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

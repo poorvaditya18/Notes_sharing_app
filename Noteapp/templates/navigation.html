@@ -1,5 +1,5 @@
-{% load static %}
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,32 +18,65 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{% static 'css/mystyle.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
   </head>
   <body>
-    <nav
+    <!-- <nav
       class="navbar navbar-expand-sm justify-content-center"
       style="background-color: lightblue"
     >
       <ul class="navbar-nav">
         <li class="navbar-it">
-          <a class="nav-link" href="{% url 'index' %}">HOME</a>
+          <a class="nav-link" href="">HOME</a>
         </li>
         <li class="navbar-it">
-          <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+          <a class="nav-link" href="">ABOUT</a>
         </li>
         <li class="navbar-it">
-          <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+          <a class="nav-link" href="">CONTACT</a>
         </li>
         <li class="navbar-it">
-          <a class="nav-link" href="{% url 'userlogin' %}">LOGIN</a>
+          <a class="nav-link" href="">LOGIN</a>
         </li>
         <li class="navbar-it">
-          <a class="nav-link" href="{% url 'login_admin' %}">ADMIN LOGIN</a>
+          <a class="nav-link" href="">ADMIN LOGIN</a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
+    <nav class="navbar navbar-expand-sm " id="navigation" >
+      <ul class="navbar-nav" id="nav1">
+          <li class="navbar-it">
+              <a class="nav-link" href="{% url 'index' %}">
+                  <span class="icon">
+                    <ion-icon name="home-outline"></ion-icon>
+                  </span>
+                  <span class="text">HOME</span>
+              </a>     
+          </li>
+          <li class="navbar-it">
+              <a class="nav-link" href="{% url 'index' %}">
+                  <span class="icon"><ion-icon name="desktop-outline"></ion-icon></span>
+        <span class="text">ABOUT</span>
+              </a>
+          </li>
+          <li class="navbar-it">
+              <a class="nav-link" href="{% url 'index' %}"><span class="icon"><ion-icon name="call-outline"></ion-icon></span>
+                  <span class="text">CONTACT</span></a>
+          </li>
+          <li class="navbar-it">
+              <a class="nav-link" href="{% url 'index' %}"><span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
+                  <span class="text">LOGIN</span></a>
+          </li>
+          <li class="navbar-it">
+              <a class="nav-link" href="{% url 'index' %}">       <span class="icon"><ion-icon name="bag-check-outline"></ion-icon></span>
+                  <span class="text">ADMIN</span></a>
+          </li>
+      </ul>
+      <h3 class="h3" id="navlogo"><span id="span"><img  class="logo" src="{% static 'images/letter.png' %}" alt="">otes</span></h3>
+  </nav>
 
-    {% block start %}
+
+    {% block start %} 
     
     {% endblock %}
 

@@ -1,0 +1,59 @@
+{% extends "usernav.html" %}
+ {% block start %} 
+ {% load static %} 
+ 
+{% if not error %}
+<script>
+  alert("Notes Updated Successfully!!");
+  //   window.location = "{% url 'userlogin' %}";
+</script>
+{% else %}
+<script>
+  alert("Try Again!!");
+</script>
+{% endif %}
+
+<div class="conatiner mt-5 ml-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2 class="text-center">UPLOAD NOTES</h2>
+      <hr />
+      <!--  -->
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Branch</label>
+        <select class="form-control" name="branch">
+          <option value="">--Select Branch--</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Information Technology">Information Technology</option>
+          <option value="Electronics and communication">
+            Electronics and communication
+          </option>
+        </select>
+        <label>SUBJECT</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Subject"
+          name="subject"
+        />
+        <label>Notes File</label>
+        <input type="file" class="form-control" name="notesfile" />
+        <label>File Type</label>
+        <select class="form-control" name="filetype">
+          <option value="">---Select FileType---</option>
+          <option value="pdf">PDF</option>
+          <option value="doc/docx">DOC/DOCX</option>
+          <option value="text">Text</option>
+          <option vlaue="image">Image</option>
+          <option vlaue="zip/rar">ZIP/RAR</option>
+        </select>
+        <br />
+        <textarea class="form-control" name="description"> </textarea>
+        <input type="submit" class="btn btn-danger mt-2" value="submit" />
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

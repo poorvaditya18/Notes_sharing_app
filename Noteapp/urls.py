@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from .views import *
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
    path('index/',index,name="index"), # home page
@@ -13,6 +16,9 @@ urlpatterns = [
    path('logout/',Logout,name='Logout'),
    path('profile/',profile,name='profile'),
    path('change_password/',changepwd,name="changepwd"),
-   path('edit_profile/',edit_profile,name="edit_profile")
+   path('edit_profile/',edit_profile,name="edit_profile"),
+   path('upload_notes/',upload_notes,name="upload_notes"),
+   path('view_mynotes',view_mynotes,name='view_mynotes'),
+   path('delete_mynotes/<int:pid>',view_mynotes,name='delete_mynotes')
 
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

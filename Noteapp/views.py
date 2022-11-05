@@ -4,6 +4,7 @@ from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpRequest , request, response
+from datetime import date
 # Create your views here.
 
 # homepage 
@@ -123,7 +124,45 @@ def edit_profile(request):
     return render(request,'edit_profile.html',context)  
 
 
+def upload_notes(request):
+    if not request.user.is_authenticated:
+        # if user is not authenticated then redirect to login page
+        return redirect('login')
+    error=True
+    if request.method == "POST":
+        branch= request.POST['branch']
+        subject = request.POST['subject']
+        notes = request.FILES['notesfile']
+        filetype = request.POST['filetype']
+        description = request.POST['description']
+        user = User.objects.filter(username = request.user.username).first()
+        try:
+            Note.objects.create(user=user,uploadingdate=date.today(),branch=branch,subject=subject,notesfile=notes,filetype=filetype,description=description)
+            error=False
+        except:
+            error=True
+    context ={'error':error}          
+    return render(request,'upload_notes.html',context)
 
+
+def view_mynotes(request):
+    if not request.user.is_authenticated:
+        # if user is not authenticated then redirect to login page
+        return redirect('login')
+    user = User.objects.get(id=request.user.id)
+    notes = Note.objects.filter(user=user)
+    context = {'notes':notes}    
+    return render(request,'view_mynotes.html',context)  
+
+
+def delete_mynotes(request,id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    notes = Note.objects.get(id=id)
+    notes.delete()
+    return redirect('view_mynotes')    
+
+    
 
 #--------------------------------------------------------
 
