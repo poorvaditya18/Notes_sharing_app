@@ -19,6 +19,6 @@ urlpatterns = [
    path('edit_profile/',edit_profile,name="edit_profile"),
    path('upload_notes/',upload_notes,name="upload_notes"),
    path('view_mynotes',view_mynotes,name='view_mynotes'),
-   path('delete_mynotes/<int:pid>',view_mynotes,name='delete_mynotes')
+   path('delete_mynotes/<int:id>',delete_mynotes,name='delete_mynotes')
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
